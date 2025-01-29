@@ -1,0 +1,11 @@
+function operator(proxies, targetPlatform) {
+
+  const withLatency = proxies.filter(p => p._latency !== undefined)
+  const withoutLatency = proxies.filter(p => p._latency === undefined)
+  
+
+  withLatency.sort((a, b) => Number(a._latency) - Number(b._latency))
+  
+
+  return [...withLatency, ...withoutLatency]
+}
